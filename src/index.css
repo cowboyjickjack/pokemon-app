@@ -1,7 +1,40 @@
+.page-wrapper {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
 .container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-size: 2rem;
+}
+
+.row-search {
+  background-color: rgb(121, 116, 242);
+}
+
+.search-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.row-pokemon {
+  background-color: rgb(246, 125, 125);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.abilities {
+  display: flex;
+  align-content: center;
+}
+
+.name {
   font-size: 2rem;
 }
