@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 
+//TODO make card for pokemon (inc. sprite, name, health?)
+
 function App() {
 
   const [data, setData] = useState([]);
@@ -19,32 +21,29 @@ function App() {
   };
 
   const searchPokemon = (event) => {
-    if (event.key === 'Enter' || event.key === !'click') {
-      if (!pokemon || !isNaN(pokemon)) {
-        alert ('Please input a pokemon');
-        return;
-      }
-
-      axios.get(url)
-      .then((response) => {
-
-        const groupedDataResult = groupedData(response.data);
-          setData(groupedDataResult);
-          console.log(response.data);
-          console.log(response.data.abilities);
-          console.log(response.data.id);
-      })
-
-      .catch((error) => {
-        console.error(error);
-        if (error.response && error.response.status === 404) {
-          console.error(
-            "Pokemon not found or API request failed. Please try again."
-          );
-        }
-      });
-
+    if (!pokemon || !isNaN(pokemon)) {
+      alert ('Please input a pokemon');
+      return;
     }
+
+    axios.get(url)
+    .then((response) => {
+
+      const groupedDataResult = groupedData(response.data);
+        setData(groupedDataResult);
+        console.log(response.data);
+        console.log(response.data.abilities);
+        console.log(response.data.id);
+    })
+
+    .catch((error) => {
+      console.error(error);
+      if (error.response && error.response.status === 404) {
+        console.error(
+          "Pokemon not found or API request failed. Please try again."
+        );
+      }
+    });
   }
 
   const handleEnter = (event) => {
@@ -54,23 +53,28 @@ function App() {
     }
   }
 
+  const handleButtonClick = () => {
+    searchPokemon();
+  };
+
   return (
     <div className="App">
       <div className="page-wrapper">
         <div className="container">
-          <header>
-            <img alt="PokéAPI" src="https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png" />
-          </header>
+          <div>
+            <img className="pokeapi-icon" alt="PokéAPI" src="https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png" />
+          </div>
           <div className="row-search">
             <h4>Please search a Pokémon:</h4>
-            <div className="search-bar">
-              <input value={pokemon}
-                onChange={(event) => setPokemon(event.target.value)}
-                onKeyDown={handleEnter} 
-                type="text" placeholder="Search" />
-              <button type="submit" onClick={searchPokemon}>Search
-              </button>
-            </div>
+              <div className="search-bar">
+                <input value={pokemon}
+                  onChange={(event) => setPokemon(event.target.value)}
+                  onKeyDown={handleEnter} 
+                  type="text" placeholder="Search" />
+                <button type="button" onClick={handleButtonClick}>Search
+                </button>
+              </div>
+          </div>
           <div className="row-pokemon">
             <div className="name">
               {data.name}
@@ -83,9 +87,7 @@ function App() {
                       <li key={index}>{ability}</li>
                     ))}
                 </ul>
-              </div>
             </div>
-
           </div>
         </div>
       </div>
