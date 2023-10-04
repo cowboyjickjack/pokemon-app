@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit&family=Press+Start+2P&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit&family=Press+Start+2P&family=Roboto&family=VT323&display=swap');
+
 .page-wrapper {
   height: 100vh;
   width: 100%;
@@ -11,16 +14,19 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 2rem;
+  font-size: 1rem;
+  font-family: 'Press Start 2P';
+  color: rgb(43, 48, 58);
+  /* font-family: 'VT323'; */
 }
 
 .pokeapi-icon{
-  margin-top: 2em;
+  margin-top: 1m;
   margin-bottom: 1em;
 }
 
-.row-search {
-  background-color: rgb(121, 116, 242);
+h4 {
+  font-size: 2rem;
 }
 
 .search-bar {
@@ -29,11 +35,31 @@
   align-items: center;
 }
 
-.row-pokemon {
-  background-color: rgb(246, 125, 125);
-  display: flex;
+.search-bar input {
+  padding: .7rem 1.5rem;
+  font-size: 1.2rem;
+  border-radius: 25px;
+  border: 1px solid rgb(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.search-bar button {
+  display: inline-flex;
   justify-content: center;
   align-items: center;
+  width: 2.8rem;
+  height: 2.8rem;
+  margin-left: .5rem;
+  border-radius: 25px;
+  border: 1px solid rgb(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.row-pokemon {
+  background-color: rgb(186, 193, 184);
+  margin-top: 2em;
+  width: 75%;
+  height: 500px;
 }
 
 .abilities {
