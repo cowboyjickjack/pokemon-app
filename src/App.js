@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 
 //TODO make card for pokemon (inc. sprite, name, health?)
+//TODO make it to where when user hits details, you can see info on that pokemon.
 
 function App() {
 
