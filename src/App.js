@@ -12,6 +12,7 @@ function App() {
 
   // Define the groupedData function
   const groupedData = (pokemonData) => {
+    // then used as 'data._'
     return {
       name: pokemonData.name,
       id: pokemonData.id,
@@ -57,6 +58,10 @@ function App() {
     searchPokemon();
   };
 
+  const capitalize = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
   return (
     <div className="App">
       <div className="page-wrapper">
@@ -76,21 +81,32 @@ function App() {
               </div>
           </div>
           <div className="row-pokemon">
-            <div className="name">
-              Name:
-              {data.name}
-            </div>
-            <div className="abilities">
-                Abilities:
-                <ul>
-                  {data.abilities &&
-                    data.abilities.map((ability, index) => (
-                      <li key={index}>{ability}</li>
-                    ))}
-                </ul>
-            </div>
-            <div className="sprite">
-              <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${data.id}.png`} alt="sprite-icon" />
+            <div className="card">
+              <div className="name">
+                Name:
+                  {data.name && (
+                    <>
+                      {capitalize(data.name)}
+                    </>
+                  )}
+              </div>
+              <div className="sprite">
+                <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${data.id}.png`} alt="sprite-icon" />
+              </div>
+              <div className="details">
+                <button type="button" onClick={handleButtonClick}><span>Details</span></button>
+              </div>
+              {/* <div className="abilities">
+                <div className="abilities-title">
+                  Abilities:
+                </div>
+                  <ul>
+                    {data.abilities &&
+                      data.abilities.map((ability, index) => (
+                        <li key={index}>{ability}</li>
+                      ))}
+                  </ul>
+              </div> */}
             </div>
           </div>
         </div>

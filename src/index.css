@@ -41,6 +41,11 @@ h4 {
   border-radius: 25px;
   border: 1px solid rgb(255, 255, 255, 0.8);
   background: rgba(255, 255, 255, 0.2);
+  font-family: 'Press Start 2P';
+}
+
+::placeholder {
+  color: rgb(43, 48, 58);
 }
 
 .search-bar button {
@@ -55,18 +60,67 @@ h4 {
   background: rgba(255, 255, 255, 0.2);
 }
 
+.card {
+  width: 300px;
+  height: 300px;
+}
+
 .row-pokemon {
   background-color: rgb(186, 193, 184);
-  margin-top: 2em;
-  width: 75%;
-  height: 500px;
+  border: 5px solid rgb(12, 124, 89);
+  border-radius: 15px;
+  margin: 2em;
+  padding: 1.5em;
+  width: 300px;
+  height: 300px;
+}
+
+.name {
+  display: flex;
+  justify-content: center;
+  font-size: 1.50rem;
+  margin-bottom: 2rem;
 }
 
 .abilities {
   display: flex;
-  align-content: center;
+  justify-content: center;
 }
 
-.name {
-  font-size: 2rem;
+ul {
+  list-style-type: disclosure-closed;
+}
+
+.sprite {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sprite img {
+  width: 150px;
+  height: 150px;
+}
+
+.details {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 25px;
+}
+
+.details button {
+  fill: rgb(43, 48, 58); 
+  stroke-width: 0; 
+  height: 3em; 
+  width: 10.5em;
+  padding: 2px;
+  font-size: 1.2rem;
+  border-radius: 25px;
+  border: 2.5px solid rgb(12, 124, 89);
+  background: rgba(255, 255, 255, 0.2);
+  color: rgb(43, 48, 58);
+  font-family: 'Press Start 2P';
+  position: relative;
+  top: 20px;
 }
